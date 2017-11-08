@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Phrase service gets the most important phrase 1`] = `
+Phrase {
+  "categories": Array [
+    "nerdy",
+  ],
+  "id": 503,
+  "text": "Chuck Norris protocol design method has no status, requests or responses, only commands.",
+}
+`;

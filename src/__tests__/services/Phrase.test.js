@@ -17,4 +17,10 @@ describe('Phrase service', () => {
       expect(typeof phrase.text).toBe('string')
     })
   })
+
+  it('gets the most important phrase', async () => {
+    const phrase = await phraseService.getMostImportantPhrase()
+
+    expect(phrase).toMatchSnapshot()
+  })
 })

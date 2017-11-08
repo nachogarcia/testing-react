@@ -8,8 +8,15 @@ class PhraseService {
     const result = await axios.get(URL + 'random/' + n)
     return parsePhrases(result.data.value)
   }
+
+  async getMostImportantPhrase () {
+    const result = await axios.get(URL + '503')
+    return parsePhrase(result.data.value)
+  }
 }
 
-const parsePhrases = phrases => phrases.map( phrase => new Phrase(phrase.id, phrase.categories, phrase.joke) )
+const parsePhrase = phrase => new Phrase(phrase.id, phrase.categories, phrase.joke)
+
+const parsePhrases = phrases => phrases.map( phrase => parsePhrase(phrase) )
 
 export default new PhraseService()
