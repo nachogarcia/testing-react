@@ -16,7 +16,7 @@ phraseService.getRandomPhrases = jest.fn( () => Promise.resolve(randomPhrases) )
 phraseService.getMostImportantPhrase = jest.fn( () => Promise.resolve(importantPhrase) )
 
 describe('App', () => {
-  it('calls the API', async() => {
+  it('calls the API', async () => {
     const wrapper = shallow(<App />)
     await wait()
 
@@ -24,5 +24,14 @@ describe('App', () => {
     expect(phraseService.getMostImportantPhrase).toHaveBeenCalled()
     expect(wrapper.state('randomPhrases')).toEqual(randomPhrases)
     expect(wrapper.state('importantPhrase')).toEqual(importantPhrase)
+  })
+
+  it('displays the most important phrase', async () => {
+    const wrapper = shallow(<App />)
+    await wait()
+
+    const phrase = wrapper.find('#importantPhrase')
+
+    expect(phrase.text()).toEqual(importantPhrase.text)
   })
 })

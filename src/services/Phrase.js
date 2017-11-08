@@ -1,7 +1,7 @@
 import Phrase from 'domain/Phrase'
 import axios from 'axios'
 
-const URL = process.env.API_URL
+const URL = process.env.REACT_APP_API_URL
 
 class PhraseService {
   async getRandomPhrases (n) {
