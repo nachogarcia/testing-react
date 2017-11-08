@@ -24,8 +24,16 @@ class App extends Component {
         <PhraseComponent important value={this.state.importantPhrase}/>
         <h2>Random Phrases</h2>
         {randomPhrases}
+        <button onClick={this.fetchRandomPhrases.bind(this)}>Get more phrases!</button>
       </div>
     )
+  }
+
+  async fetchRandomPhrases () {
+    const randomPhrases = await phraseService.getRandomPhrases(5)
+    this.setState({
+      randomPhrases,
+    })
   }
 
   async componentWillMount() {

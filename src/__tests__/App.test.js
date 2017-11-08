@@ -45,4 +45,13 @@ describe('App', () => {
       expect(phrases.at(index).prop('value')).toEqual(phrase)
     })
   })
+
+  it('fetchs more phrases', () => {
+    phraseService.getRandomPhrases.mockClear()
+    const button = wrapper.find('button')
+
+    button.simulate('click')
+
+    expect(phraseService.getRandomPhrases).toHaveBeenCalledTimes(1)
+  })
 })
