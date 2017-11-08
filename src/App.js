@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import 'App.css'
 import phraseService from 'services/Phrase'
+import PhraseComponent from 'components/Phrase'
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class App extends Component {
   }
 
   render() {
-    const randomPhrases = this.state.randomPhrases.map( phrase => <p className="phrase" key={phrase.id}>{phrase.text}</p> )
+    const randomPhrases = this.state.randomPhrases.map( phrase => <PhraseComponent key={phrase.id} value={phrase} /> )
 
     return (
       <div className="App">
@@ -20,7 +21,7 @@ class App extends Component {
           <h1>Chuck Norris Phrases</h1>
         </div>
         <h2>Important Phrase</h2>
-        <p id="importantPhrase">{this.state.importantPhrase.text}</p>
+        <PhraseComponent important value={this.state.importantPhrase}/>
         <h2>Random Phrases</h2>
         {randomPhrases}
       </div>

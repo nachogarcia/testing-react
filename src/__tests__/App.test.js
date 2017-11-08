@@ -3,6 +3,7 @@ import App from 'App'
 import { shallow } from 'enzyme'
 import phraseService from 'services/Phrase'
 import Phrase from 'domain/Phrase'
+import PhraseComponent from 'components/Phrase'
 
 const wait = () => new Promise(resolve => setImmediate(resolve))
 
@@ -32,16 +33,16 @@ describe('App', () => {
   })
 
   it('displays the most important phrase', () => {
-    const phrase = wrapper.find('#importantPhrase')
+    const phrase = wrapper.find('[important]')
 
-    expect(phrase.text()).toEqual(importantPhrase.text)
+    expect(phrase.prop('value')).toEqual(importantPhrase)
   })
 
   it('displays the random phrases', () => {
-    const phrases = wrapper.find('.phrase')
+    const phrases = wrapper.find(PhraseComponent).not('[important]')
 
     randomPhrases.forEach( (phrase, index) => {
-      expect(phrases.at(index).text()).toEqual(phrase.text)
+      expect(phrases.at(index).prop('value')).toEqual(phrase)
     })
   })
 })
