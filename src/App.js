@@ -15,8 +15,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h1>Chuck Norris Phrases</h1>
-          <p id="importantPhrase">{this.state.importantPhrase.text}</p>
         </div>
+        <h2>Important Phrase</h2>
+        <p id="importantPhrase">{this.state.importantPhrase.text}</p>
       </div>
     )
   }
