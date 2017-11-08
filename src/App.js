@@ -6,11 +6,14 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      importantPhrase: {}
+      importantPhrase: {},
+      randomPhrases: [],
     }
   }
 
   render() {
+    const randomPhrases = this.state.randomPhrases.map( phrase => <p className="phrase" key={phrase.id}>{phrase.text}</p> )
+
     return (
       <div className="App">
         <div className="App-header">
@@ -18,6 +21,8 @@ class App extends Component {
         </div>
         <h2>Important Phrase</h2>
         <p id="importantPhrase">{this.state.importantPhrase.text}</p>
+        <h2>Random Phrases</h2>
+        {randomPhrases}
       </div>
     )
   }

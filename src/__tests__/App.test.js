@@ -36,4 +36,12 @@ describe('App', () => {
 
     expect(phrase.text()).toEqual(importantPhrase.text)
   })
+
+  it('displays the random phrases', () => {
+    const phrases = wrapper.find('.phrase')
+
+    randomPhrases.forEach( (phrase, index) => {
+      expect(phrases.at(index).text()).toEqual(phrase.text)
+    })
+  })
 })
